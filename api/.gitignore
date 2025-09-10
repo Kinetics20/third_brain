@@ -11,3 +11,6 @@ wheels/
 .idea
 /coverage.xml
 /.coverage
+
+/.env
+src/.coverage
