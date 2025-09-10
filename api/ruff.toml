@@ -1,0 +1,51 @@
+target-version = "py313"
+line-length = 120
+indent-width = 4
+
+[format]
+line-ending = "auto"
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+docstring-code-format = true
+docstring-code-line-length = 120
+
+[lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "S",
+    "TRY",
+    "TID",
+    "PTH",
+    "ANN",
+    "D",
+    "RUF"
+]
+
+ignore = [
+    "D203",
+    "D213",
+    "PLR2004"
+]
+
+[lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[lint.isort]
+force-single-line = false
+combine-as-imports = true
+known-first-party = ["app", "tests"]
+order-by-type = true
+
+[lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends"]
+
+[lint.pep8-naming]
+classmethod-decorators = ["classmethod"]
+staticmethod-decorators = ["staticmethod"]
+
+[lint.pyupgrade]
+keep-runtime-typing = false

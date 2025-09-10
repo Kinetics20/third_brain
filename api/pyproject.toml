@@ -1,0 +1,49 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.116.1",
+    "prek>=0.1.6",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.13.0",
+    "ty>=0.0.1a20",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = """
+    --strict-markers
+    --disable-warnings
+    --maxfail=3
+    --cov-report=term-missing
+    --cov-fail-under=100
+    --cov=src
+"""
+testpaths = [
+    "tests",
+]
+
+markers = [
+    "slow: for slow tests",
+    "integration: for integration tests",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+omit = [
+    "tests/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "def __repr__",
+    "raise NotImplementedError",
+]

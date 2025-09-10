@@ -1,0 +1,23 @@
+[rules]
+possibly-unresolved-reference = "error"
+index-out-of-bounds           = "warn"
+
+[environment]
+python = "./.venv"
+python-version = "3.13"
+python-platform = "all"
+root = ["./src", "./tests"]
+
+[src]
+include = ["src", "tests"]
+exclude = [
+  "build", "dist", ".tox", ".nox", ".venv", "node_modules",
+  "tests/fixtures/**",
+  "generated/**",
+  "!generated/important.py",
+    "**/*\\~"
+]
+respect-ignore-files = true
+[terminal]
+error-on-warning = false
+output-format = "full"
