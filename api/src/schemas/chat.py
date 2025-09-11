@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ChatIn(BaseModel):
@@ -13,11 +13,10 @@ class ChatIn(BaseModel):
         model (str): Target OpenAI chat model.
         stream (bool): Whether to return results as a stream (SSE) or
             as a single response.
+
     """
-    model_config = ConfigDict(
-        extra='forbid',
-        frozen=True
-    )
+
+    model_config = ConfigDict(extra="forbid", frozen=True)
 
     message: str = Field(..., description="User message", examples=["Tell me a joke about data engineers."])
     system_prompt: str | None = Field(
